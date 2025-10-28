@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
     } else {
         // Obtener el nombre y correo del usuario actual
         $email = $_SESSION["currentEmail"];
-        $sql = "SELECT nombre, correo FROM Usuario WHERE correo='$email'";
+        $sql = "SELECT nombre, correo FROM usuario WHERE correo='$email'";
         $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
         }
 
         // Obtener el nombre y correo del entrenador
-        $sql = "SELECT nombre, correo FROM Usuario WHERE correo='$trainerEmail'";
+        $sql = "SELECT nombre, correo FROM usuario WHERE correo='$trainerEmail'";
         $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
 
             // Obtener los Pokémon del entrenador
             $sql = "SELECT p.id, p.img_id, p.especie, p.nombre, p.peso, p.altura, p.baxp 
-                    FROM Pokemon p 
+                    FROM pokemon p 
                     INNER JOIN Pokedek_pokemon pp ON p.id = pp.id_pokemon 
                     INNER JOIN Pokedek pk ON pp.id_pokedek = pk.id 
                     INNER JOIN Usuario u ON pk.id_usuario = u.id 
