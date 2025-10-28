@@ -25,7 +25,7 @@ if ($link == false) {
     $message = "ERROR: Could not connect " . mysqli_connect_error();
 } else {
     // Obtener el nombre del usuario actual
-    $sql = "SELECT nombre, correo FROM Usuario WHERE correo='$email'";
+    $sql = "SELECT nombre, correo FROM usuario WHERE correo='$email'";
     $result = mysqli_query($link, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -44,9 +44,9 @@ if ($link == false) {
         // Debugging input
         echo "<pre>Input Email: " . htmlspecialchars($searchEmail) . "</pre>";
 
-        $sql2 = "SELECT * FROM Usuario WHERE correo LIKE '%" . $searchEmail . "%'";
+        $sql2 = "SELECT * FROM usuario WHERE correo LIKE '%" . $searchEmail . "%'";
     } else {
-        $sql2 = "SELECT * FROM Usuario WHERE correo != 'admin@stucom.com'";
+        $sql2 = "SELECT * FROM usuario WHERE correo != 'admin@stucom.com'";
     }
 
     // Obtener los usuarios
@@ -62,7 +62,7 @@ if ($link == false) {
 
         foreach ($usersToUse as $user) {
             $id_usuario = $user["id"];
-            $sql3 = "SELECT COUNT(p.id) AS 'n' FROM Pokemon p
+            $sql3 = "SELECT COUNT(p.id) AS 'n' FROM pokemon p
                     INNER JOIN Pokedek_pokemon pp ON p.id = pp.id_pokemon 
                     INNER JOIN Pokedek pk ON pp.id_pokedek = pk.id
                     INNER JOIN Usuario u ON pk.id_usuario = u.id WHERE u.id ='$id_usuario'";
