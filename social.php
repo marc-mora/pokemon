@@ -1,10 +1,10 @@
 <?php 
 session_start(); // Iniciar la sesión
-require(__DIR__.'/../php/mysqlMain.php');
-require(__DIR__.'/../php/mysqlSearchUser.php');
+require(__DIR__.'//php/mysqlMain.php');
+require(__DIR__.'//php/mysqlSearchUser.php');
 
 if (!isset($_SESSION["currentEmail"])) {
-  header("Location: signin.php");
+  header("Location: /signin.php");
   exit();
 }
 
@@ -18,7 +18,7 @@ $user_mail = "";
 $email = $_SESSION["currentEmail"];
 
 // Conectar a la base de datos
-$link = mysqli_connect("db", "root", "12345", "Pokewebapp");
+$link = mysqli_connect("localhost", "root", "", "Pokewebapp");
 
 // Revisar si se ha realizado la conexión
 if ($link == false) {
@@ -90,17 +90,17 @@ if ($link == false) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg" href="../img/pokedex.png" />
+    <link rel="icon" type="image/svg" href="/img/pokedex.png" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/Navbar.css" />
-    <link rel="stylesheet" href="../css/Main.css" />
-    <link rel="stylesheet" href="../css/Social.css" />
-    <link rel="stylesheet" href="../css/Badge.css" />
+    <link rel="stylesheet" href="/css/Navbar.css" />
+    <link rel="stylesheet" href="/css/Main.css" />
+    <link rel="stylesheet" href="/css/Social.css" />
+    <link rel="stylesheet" href="/css/Badge.css" />
     <title>Social</title>
 </head>
 <body>
@@ -109,7 +109,7 @@ if ($link == false) {
             <a class="Navbar__brand" href="javascript:window.location.assign('main.php')">
                 <img
                   class="Navbar__brand-logo"
-                  src="../img/social.svg"
+                  src="/img/social.svg"
                   alt="Logo"
                 />
                 <span class="font-weight-light">Poké</span>
@@ -117,7 +117,7 @@ if ($link == false) {
             </a>
             <div class="header__menu">
                 <div class="header__menu--profile">
-                    <img src="../img/avatar.svg" alt="User" />
+                    <img src="/img/avatar.svg" alt="User" />
                     <p>
                       <?php
                       echo htmlspecialchars($name);
@@ -157,7 +157,7 @@ if ($link == false) {
                           <button type=\"submit\" class=\"btn btn-link p-0\">
                             <li class=\"BadgesListItem\">
                                 <img
-                                  src=\"../img/avatar.svg\"
+                                  src=\"/img/avatar.svg\"
                                   alt=\"avatar\"
                                   class=\"BadgesListItem__avatar\"
                                 />
@@ -183,11 +183,11 @@ if ($link == false) {
             </div>
             <div class="col-5 d-flex justify-content-center flex-column">
                 <div class="d-flex justify-content-center">
-                     <img class="Social__img" src="../img/pika.png" alt="" width="440px">
+                     <img class="Social__img" src="/img/pika.png" alt="" width="440px">
                 </div>
             </div>
         </div>
     </div>
-    <script src="../js/social.js"></script>
+    <script src="/js/social.js"></script>
 </body>
 </html>

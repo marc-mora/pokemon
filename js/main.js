@@ -159,7 +159,7 @@ form.addEventListener("submit", () => {
 function logout() {
   sessionStorage.clear();
   // Eliminar la sesión y redirigir a la página de inicio de sesión
-  fetch("../php/logout.php")
+  fetch("/php/logout.php")
     .then(() => {
       window.location.assign("signin.php");
     })

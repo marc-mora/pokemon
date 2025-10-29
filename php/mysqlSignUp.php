@@ -3,7 +3,7 @@ $message = "";
 
 // Establecemos la conexión con la base de datos
 if (!empty($_POST)) {
-    $link = mysqli_connect("localhost","root","12345","Pokewebapp");
+    $link = mysqli_connect("localhost","root","","Pokewebapp");
     // Revisamos que se haya realizado la conexión
     if ($link == false){
         die("ERROR: Could not connect ".mysqli_connect_error());
@@ -41,7 +41,7 @@ if (!empty($_POST)) {
             $stmt->bind_param("s", $id);
             $stmt->execute();
 
-            header('Location: ../html/signin.php');
+            header('Location: /signin.php');
             exit();
         }
         $stmt->close();

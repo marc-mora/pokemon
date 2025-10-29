@@ -1,10 +1,10 @@
 <?php 
 session_start(); // Iniciar la sesión
-require(__DIR__.'/../php/mysqlMain.php');
+require(__DIR__.'//php/mysqlMain.php');
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION["currentEmail"])) {
-  header("Location: signin.php");
+  header("Location: /signin.php");
   exit();
 }
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
     $trainerEmail = $_POST['user-mail'];
 
     // Conectar a la base de datos
-    $link = mysqli_connect("db", "root", "12345", "Pokewebapp");
+    $link = mysqli_connect("localhost", "root", "", "Pokewebapp");
 
     // Revisar si se ha realizado la conexión
     if ($link == false) {
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
         mysqli_close($link);
     }
 } else {
-    header("Location: social.php");
+    header("Location: /social.php");
     exit();
 }
 ?>
@@ -80,16 +80,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg" href="../img/pokedex.png" />
+    <link rel="icon" type="image/svg" href="/img/pokedex.png" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/Navbar.css" />
-    <link rel="stylesheet" href="../css/Main.css" />
-    <link rel="stylesheet" href="../css/Social.css" />
+    <link rel="stylesheet" href="/css/Navbar.css" />
+    <link rel="stylesheet" href="/css/Main.css" />
+    <link rel="stylesheet" href="/css/Social.css" />
     <title>Trainer View</title>
     <style>
         .carousel__viewport {
@@ -171,13 +171,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
     <div class="Navbar">
         <div class="container-fluid d-flex justify-content-between">
             <a class="Navbar__brand" href="javascript:window.location.assign('main.php')">
-                <img class="Navbar__brand-logo" src="../img/social.svg" alt="Logo" />
+                <img class="Navbar__brand-logo" src="/img/social.svg" alt="Logo" />
                 <span class="font-weight-light">Poké</span>
                 <span class="font-weight-bold">dex</span>
             </a>
             <div class="header__menu">
                 <div class="header__menu--profile">
-                    <img src="../img/avatar.svg" alt="User" />
+                    <img src="/img/avatar.svg" alt="User" />
                     <p>
                       <?php echo htmlspecialchars($name); ?>
                     </p>
@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user-mail'])) {
                             <div id=\"carousel__slide0\"
                             class=\"carousel__slide\">
                             <div class=\"d-flex justify-content-center align-items-center\">
-                                <img src=\"../img/broke.svg\" alt=\"\" width=\"400px\">
+                                <img src=\"/img/broke.svg\" alt=\"\" width=\"400px\">
                             </div>
                         </div>
                         ";

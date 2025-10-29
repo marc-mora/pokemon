@@ -2,7 +2,7 @@
 $id_pokedek="";
 require(__DIR__.'/mysqlProfile.php');
 //establecemos la conexión con la base de datos
-$link = mysqli_connect("localhost","root","12345","Pokewebapp");
+$link = mysqli_connect("localhost","root","","Pokewebapp");
 //revisamos que se haya realizado la conexión
 if($link == false){
 	$message = "ERROR: Could not connect ".mysqli_connect_error();
@@ -38,7 +38,7 @@ WHERE u.correo = '$email'";
     if($poke_name!=""){
     $sql = "UPDATE pokemon SET nombre  = '$poke_name'  WHERE id = '$id_pokemon'";
     if(mysqli_query($link, $sql)){
-    	header('Location: ../html/profile.php');
+    	header('Location: /profile.php');
 		exit();
     }else{
     	$message = "ERROR: Could not update pokemon";
@@ -46,7 +46,7 @@ WHERE u.correo = '$email'";
 	mysqli_close($link);
         }
     }else{
-        header('Location: ../html/profile.php');
+        header('Location: /profile.php');
         exit();
     }
 }else{

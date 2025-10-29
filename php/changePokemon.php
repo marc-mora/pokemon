@@ -3,7 +3,7 @@ require(__DIR__.'/mysqlProfile.php');
 //obtenemos el indice de la imagen clickeada
 $id = $_COOKIE["clicked"];
 //establecemos la conexión con la base de datos
-$link = mysqli_connect("localhost","root","12345","Pokewebapp");
+$link = mysqli_connect("localhost","root","","Pokewebapp");
 //revisamos que se haya realizado la conexión
 if($link == false){
 	echo "cannot connect";
@@ -37,7 +37,7 @@ if($link == false){
     		//de la imagen seleccionada
     		$sql="UPDATE pokemon SET id  = '$id'  WHERE id = '$last_id'";
     		if(mysqli_query($link, $sql)){
-    			header('Location: ../html/profile.php');
+    			header('Location: /profile.php');
 				exit();
     		}else{
     			echo "cannot update id old to new";

@@ -4,7 +4,7 @@ $id_pokedek="";
 $pokemon_id = $_POST['pokemonIdToDelete'];
 require(__DIR__.'/mysqlProfile.php');
 // Establecemos la conexión con la base de datos
-$link = mysqli_connect("localhost","root","12345","Pokewebapp");
+$link = mysqli_connect("localhost","root","","Pokewebapp");
 // Revisamos que se haya realizado la conexión
 if($link == false){
     $message = "ERROR: Could not connect ".mysqli_connect_error();
@@ -33,7 +33,7 @@ if($link == false){
             $pokeballsToAdd = rand(1, 3);
             $sql = "UPDATE usuario SET pokeballs = pokeballs + $pokeballsToAdd WHERE correo = '$email'";
             if(mysqli_query($link, $sql)){
-                header('Location: ../html/profile.php');
+                header('Location: /profile.php');
                 exit();
             }else{
                 $message = "ERROR: Could not update pokeballs";

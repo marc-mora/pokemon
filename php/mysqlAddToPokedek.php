@@ -5,7 +5,7 @@ $id_pokemon = "";
 
 $message = "";
 // Establecemos la conexión con la base de datos
-$link = mysqli_connect("localhost", "root", "12345", "Pokewebapp");
+$link = mysqli_connect("localhost", "root", "", "Pokewebapp");
 
 // Revisamos que se haya realizado la conexión
 if ($link == false) {
@@ -51,7 +51,7 @@ if ($link == false) {
                     $sql = "INSERT INTO pokedek_pokemon (id_pokedek,id_pokemon) VALUES ('$id_pokedek','$id_pokemon')";
                     if (mysqli_query($link, $sql)) {
                         $message = "Pokemon added to Pokedek";
-                        header('Location: ../html/successInsert.html');
+                        header('Location: /successInsert.html');
                     } else {
                         $message = "Pokemon cannot be added to Pokedek";
                     }
@@ -63,7 +63,7 @@ if ($link == false) {
                 $sql = "UPDATE usuario SET pokeballs = pokeballs - 1 WHERE id='$userID'";
                 if (mysqli_query($link, $sql)) {
                     $message = "Pokeball subtracted from user";
-                    header('Location: ../html/failInsert.html');
+                    header('Location: /failInsert.html');
                 } else {
                     $message = "Error subtracting pokeball from user";
                 }
@@ -73,7 +73,7 @@ if ($link == false) {
         }
     } else {
         // No hay pokeballs disponibles, redirigir a nopokeballs.html
-        header('Location: ../html/nopokeballs.html');
+        header('Location: /nopokeballs.html');
     }
 
     // Cerramos la conexión

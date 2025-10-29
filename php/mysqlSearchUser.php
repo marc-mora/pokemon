@@ -1,7 +1,7 @@
 <?php
 $message="";
 //establecemos la conexión con la base de datos
-$link = mysqli_connect("localhost","root","12345","Pokewebapp");
+$link = mysqli_connect("localhost","root","","Pokewebapp");
 //revisamos que se haya realizado la conexión
 if($link == false){
 	echo "cannot connect";
@@ -18,7 +18,7 @@ mysqli_close($link);
     	$result = mysqli_query($link, $sql);
     	if (mysqli_num_rows($result) > 0){
             setcookie("user_mail", $user_mail, time() + (86400 * 1), "/");
-    		header('Location: ../html/trainerView.php');
+    		header('Location: /trainerView.php');
     	}	else{
     	$message = "Could not find user";
     	// Close connection

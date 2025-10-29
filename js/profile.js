@@ -32,7 +32,7 @@ const hideDeleteModal = () => {
 function logout() {
   sessionStorage.clear();
   // Eliminar la sesión y redirigir a la página de inicio de sesión
-  fetch("../php/logout.php")
+  fetch("/php/logout.php")
     .then(() => {
       window.location.assign("signin.php");
     })
@@ -43,7 +43,7 @@ function logout() {
 
 const verifyProfile = () => {
   // Verificar si no hay una sesión iniciada y redirigir a la página de inicio de sesión
-  fetch("../php/session.php")
+  fetch("/php/session.php")
     .then((response) => response.json())
     .then((data) => {
       if (!data.isLoggedIn) {
@@ -57,7 +57,7 @@ const verifyProfile = () => {
 
 function displayPokemon(i) {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "../php/getPokemon.php", true);
+  xhr.open("POST", "/php/getPokemon.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
   xhr.onreadystatechange = function() {

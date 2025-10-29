@@ -5,7 +5,7 @@ if (isset($_POST['email'])) {
 }
 
 //establecemos la conexión con la base de datos
-$link = mysqli_connect("localhost","root","12345","Pokewebapp");
+$link = mysqli_connect("localhost","root","","Pokewebapp");
 //revisamos que se haya realizado la conexión
 if($link == false){
 	echo "cannot connect";

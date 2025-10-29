@@ -2,7 +2,7 @@
 $name = "";
 $pokeballs  = 20;
 //establecemos la conexión con la base de datos
-$link = mysqli_connect("localhost","root","12345","Pokewebapp");
+$link = mysqli_connect("localhost","root","","Pokewebapp");
 //revisamos que se haya realizado la conexión
 if($link == false){
 	$message = "ERROR: Could not connect ".mysqli_connect_error();

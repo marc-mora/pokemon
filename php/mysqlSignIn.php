@@ -2,7 +2,7 @@
 $message = "";
 
 if (!empty($_POST)) {
-    $link = mysqli_connect("localhost","root","12345","Pokewebapp");
+    $link = mysqli_connect("localhost","root","","Pokewebapp");
 
     if ($link == false) {
         $message = "ERROR: Could not connect " . mysqli_connect_error();
@@ -26,7 +26,7 @@ if (!empty($_POST)) {
                 $_SESSION["currentEmail"] = $email;
                 $_SESSION["currentId"] = $id_usuario;
 
-                header('Location: ../html/main.php');
+                header('Location: /main.php');
                 exit();
             } else {
                 $message = "Credenciales incorrectas";

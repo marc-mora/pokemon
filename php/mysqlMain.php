@@ -1,7 +1,7 @@
 <?php
 $name = "";
 
-$link = mysqli_connect("localhost","root","12345","Pokewebapp");
+$link = mysqli_connect("localhost","root","","Pokewebapp");
 
 if ($link == false) {
   $message = "ERROR: Could not connect " . mysqli_connect_error();
